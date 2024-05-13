@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2915D83E2BF1CA2F00EAC2DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D83D2BF1CA2F00EAC2DA /* AppDelegate.swift */; };
+		2915D8402BF1CA2F00EAC2DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D83F2BF1CA2F00EAC2DA /* SceneDelegate.swift */; };
+		2915D8422BF1CA2F00EAC2DA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8412BF1CA2F00EAC2DA /* AuthViewController.swift */; };
+		2915D8472BF1CA3000EAC2DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2915D8462BF1CA3000EAC2DA /* Assets.xcassets */; };
+		2915D84A2BF1CA3000EAC2DA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2915D8492BF1CA3000EAC2DA /* Base */; };
+		2915D8522BF1CACC00EAC2DA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8512BF1CACC00EAC2DA /* CustomTextField.swift */; };
+		2915D8552BF1CAE100EAC2DA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2915D8542BF1CAE100EAC2DA /* SnapKit */; };
+		2915D8572BF1CDD400EAC2DA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8562BF1CDD400EAC2DA /* CustomButton.swift */; };
+		2915D8592BF1CE4E00EAC2DA /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8582BF1CE4E00EAC2DA /* UIColor+.swift */; };
+		2915D85E2BF1D45200EAC2DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D85D2BF1D45200EAC2DA /* HomeViewController.swift */; };
+		2915D8602BF1D49300EAC2DA /* CryptoCoffeeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D85F2BF1D49300EAC2DA /* CryptoCoffeeButton.swift */; };
+		2915D8622BF1D8CF00EAC2DA /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8612BF1D8CF00EAC2DA /* OrderViewController.swift */; };
+		2915D8652BF1E45600EAC2DA /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 2915D8642BF1E45600EAC2DA /* metamask-ios-sdk */; };
+		2915D8672BF1E4E900EAC2DA /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8662BF1E4E900EAC2DA /* TransactionModel.swift */; };
+		2915D86A2BF1EA0C00EAC2DA /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8692BF1EA0C00EAC2DA /* QRViewController.swift */; };
+		29609AEA2BF1F89800486934 /* DIDRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29609AE92BF1F89800486934 /* DIDRequestDTO.swift */; };
+		29609AEC2BF201F100486934 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29609AEB2BF201F100486934 /* OrderDetailViewController.swift */; };
+		29CDB52F2BF1F49400F19A92 /* DIDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDB52E2BF1F49400F19A92 /* DIDAPI.swift */; };
+		29CDB5312BF1F4FF00F19A92 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDB5302BF1F4FF00F19A92 /* Error.swift */; };
+		29CDB5332BF1F53900F19A92 /* DIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDB5322BF1F53900F19A92 /* DIDModel.swift */; };
+		29CDB5362BF1F57900F19A92 /* DIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDB5352BF1F57900F19A92 /* DIDManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2915D83A2BF1CA2F00EAC2DA /* CryptoCoffee_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoCoffee_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2915D83D2BF1CA2F00EAC2DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2915D83F2BF1CA2F00EAC2DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2915D8412BF1CA2F00EAC2DA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		2915D8462BF1CA3000EAC2DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2915D8492BF1CA3000EAC2DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2915D84B2BF1CA3000EAC2DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2915D8512BF1CACC00EAC2DA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2915D8562BF1CDD400EAC2DA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		2915D8582BF1CE4E00EAC2DA /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		2915D85D2BF1D45200EAC2DA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2915D85F2BF1D49300EAC2DA /* CryptoCoffeeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoffeeButton.swift; sourceTree = "<group>"; };
+		2915D8612BF1D8CF00EAC2DA /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		2915D8662BF1E4E900EAC2DA /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		2915D8692BF1EA0C00EAC2DA /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		29609AE92BF1F89800486934 /* DIDRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDRequestDTO.swift; sourceTree = "<group>"; };
+		29609AEB2BF201F100486934 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
+		29CDB52E2BF1F49400F19A92 /* DIDAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDAPI.swift; sourceTree = "<group>"; };
+		29CDB5302BF1F4FF00F19A92 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		29CDB5322BF1F53900F19A92 /* DIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDModel.swift; sourceTree = "<group>"; };
+		29CDB5352BF1F57900F19A92 /* DIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2915D8372BF1CA2F00EAC2DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2915D8652BF1E45600EAC2DA /* metamask-ios-sdk in Frameworks */,
+				2915D8552BF1CAE100EAC2DA /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2915D8312BF1CA2F00EAC2DA = {
+			isa = PBXGroup;
+			children = (
+				2915D83C2BF1CA2F00EAC2DA /* CryptoCoffee_iOS */,
+				2915D83B2BF1CA2F00EAC2DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2915D83B2BF1CA2F00EAC2DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2915D83A2BF1CA2F00EAC2DA /* CryptoCoffee_iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2915D83C2BF1CA2F00EAC2DA /* CryptoCoffee_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				29CDB52D2BF1F48500F19A92 /* APIService */,
+				2915D8682BF1E4F500EAC2DA /* Model */,
+				2915D85C2BF1D16D00EAC2DA /* Extension */,
+				2915D85B2BF1D16000EAC2DA /* Global */,
+				2915D85A2BF1D14900EAC2DA /* VCs */,
+				2915D83D2BF1CA2F00EAC2DA /* AppDelegate.swift */,
+				2915D83F2BF1CA2F00EAC2DA /* SceneDelegate.swift */,
+				2915D8462BF1CA3000EAC2DA /* Assets.xcassets */,
+				2915D8482BF1CA3000EAC2DA /* LaunchScreen.storyboard */,
+				2915D84B2BF1CA3000EAC2DA /* Info.plist */,
+			);
+			path = CryptoCoffee_iOS;
+			sourceTree = "<group>";
+		};
+		2915D85A2BF1D14900EAC2DA /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				2915D8412BF1CA2F00EAC2DA /* AuthViewController.swift */,
+				2915D85D2BF1D45200EAC2DA /* HomeViewController.swift */,
+				2915D8612BF1D8CF00EAC2DA /* OrderViewController.swift */,
+				2915D8692BF1EA0C00EAC2DA /* QRViewController.swift */,
+				29609AEB2BF201F100486934 /* OrderDetailViewController.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		2915D85B2BF1D16000EAC2DA /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				2915D8562BF1CDD400EAC2DA /* CustomButton.swift */,
+				2915D8512BF1CACC00EAC2DA /* CustomTextField.swift */,
+				2915D85F2BF1D49300EAC2DA /* CryptoCoffeeButton.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		2915D85C2BF1D16D00EAC2DA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2915D8582BF1CE4E00EAC2DA /* UIColor+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2915D8682BF1E4F500EAC2DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				29CDB5342BF1F56B00F19A92 /* Manager */,
+				2915D8662BF1E4E900EAC2DA /* TransactionModel.swift */,
+				29CDB5302BF1F4FF00F19A92 /* Error.swift */,
+				29CDB5322BF1F53900F19A92 /* DIDModel.swift */,
+				29609AE92BF1F89800486934 /* DIDRequestDTO.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		29CDB52D2BF1F48500F19A92 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				29CDB52E2BF1F49400F19A92 /* DIDAPI.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		29CDB5342BF1F56B00F19A92 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				29CDB5352BF1F57900F19A92 /* DIDManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2915D8392BF1CA2F00EAC2DA /* CryptoCoffee_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2915D84E2BF1CA3000EAC2DA /* Build configuration list for PBXNativeTarget "CryptoCoffee_iOS" */;
+			buildPhases = (
+				2915D8362BF1CA2F00EAC2DA /* Sources */,
+				2915D8372BF1CA2F00EAC2DA /* Frameworks */,
+				2915D8382BF1CA2F00EAC2DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CryptoCoffee_iOS;
+			packageProductDependencies = (
+				2915D8542BF1CAE100EAC2DA /* SnapKit */,
+				2915D8642BF1E45600EAC2DA /* metamask-ios-sdk */,
+			);
+			productName = CryptoCoffee_iOS;
+			productReference = 2915D83A2BF1CA2F00EAC2DA /* CryptoCoffee_iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2915D8322BF1CA2F00EAC2DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					2915D8392BF1CA2F00EAC2DA = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 2915D8352BF1CA2F00EAC2DA /* Build configuration list for PBXProject "CryptoCoffee_iOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2915D8312BF1CA2F00EAC2DA;
+			packageReferences = (
+				2915D8532BF1CAE100EAC2DA /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2915D8632BF1E45600EAC2DA /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */,
+			);
+			productRefGroup = 2915D83B2BF1CA2F00EAC2DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2915D8392BF1CA2F00EAC2DA /* CryptoCoffee_iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2915D8382BF1CA2F00EAC2DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2915D8472BF1CA3000EAC2DA /* Assets.xcassets in Resources */,
+				2915D84A2BF1CA3000EAC2DA /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2915D8362BF1CA2F00EAC2DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2915D8602BF1D49300EAC2DA /* CryptoCoffeeButton.swift in Sources */,
+				29CDB5332BF1F53900F19A92 /* DIDModel.swift in Sources */,
+				2915D8522BF1CACC00EAC2DA /* CustomTextField.swift in Sources */,
+				2915D8422BF1CA2F00EAC2DA /* AuthViewController.swift in Sources */,
+				29CDB5312BF1F4FF00F19A92 /* Error.swift in Sources */,
+				2915D83E2BF1CA2F00EAC2DA /* AppDelegate.swift in Sources */,
+				2915D8402BF1CA2F00EAC2DA /* SceneDelegate.swift in Sources */,
+				29CDB5362BF1F57900F19A92 /* DIDManager.swift in Sources */,
+				2915D86A2BF1EA0C00EAC2DA /* QRViewController.swift in Sources */,
+				29609AEC2BF201F100486934 /* OrderDetailViewController.swift in Sources */,
+				29CDB52F2BF1F49400F19A92 /* DIDAPI.swift in Sources */,
+				2915D8672BF1E4E900EAC2DA /* TransactionModel.swift in Sources */,
+				2915D8572BF1CDD400EAC2DA /* CustomButton.swift in Sources */,
+				2915D85E2BF1D45200EAC2DA /* HomeViewController.swift in Sources */,
+				2915D8592BF1CE4E00EAC2DA /* UIColor+.swift in Sources */,
+				2915D8622BF1D8CF00EAC2DA /* OrderViewController.swift in Sources */,
+				29609AEA2BF1F89800486934 /* DIDRequestDTO.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2915D8482BF1CA3000EAC2DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2915D8492BF1CA3000EAC2DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2915D84C2BF1CA3000EAC2DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2915D84D2BF1CA3000EAC2DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2915D84F2BF1CA3000EAC2DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F7GYZYWC6V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoCoffee_iOS/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bwcompany.CryptoCoffee-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2915D8502BF1CA3000EAC2DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F7GYZYWC6V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CryptoCoffee_iOS/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bwcompany.CryptoCoffee-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2915D8352BF1CA2F00EAC2DA /* Build configuration list for PBXProject "CryptoCoffee_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2915D84C2BF1CA3000EAC2DA /* Debug */,
+				2915D84D2BF1CA3000EAC2DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2915D84E2BF1CA3000EAC2DA /* Build configuration list for PBXNativeTarget "CryptoCoffee_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2915D84F2BF1CA3000EAC2DA /* Debug */,
+				2915D8502BF1CA3000EAC2DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2915D8532BF1CAE100EAC2DA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		2915D8632BF1E45600EAC2DA /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MetaMask/metamask-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2915D8542BF1CAE100EAC2DA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2915D8532BF1CAE100EAC2DA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		2915D8642BF1E45600EAC2DA /* metamask-ios-sdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2915D8632BF1E45600EAC2DA /* XCRemoteSwiftPackageReference "metamask-ios-sdk" */;
+			productName = "metamask-ios-sdk";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2915D8322BF1CA2F00EAC2DA /* Project object */;
+}
