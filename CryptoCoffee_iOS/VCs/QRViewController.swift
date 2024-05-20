@@ -9,15 +9,11 @@ import UIKit
 import SnapKit
 
 final class QRViewController: UIViewController {
-    var menu: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         self.setupLayouts()
-        
-        guard let menu = self.menu else { return }
-        loadImage(menu: menu)
     }
     
     private lazy var label: UILabel = {
@@ -34,7 +30,7 @@ final class QRViewController: UIViewController {
         return imageView
     }()
     
-    private func loadImage(menu: String) {
+    func loadImage(menu: String) {
         let data = "https://quickchart.io/qr?text=\(menu)"
         guard let url = URL(string: data)  else { return }
         

@@ -11,10 +11,12 @@ import SnapKit
 final class CustomButton: UIButton {
     private let buttonSetTitle: String
     private var tabButtonAction: UIAction
+    private var fontSize: Int
     
-    init(buttonTitle: String, action: UIAction) {
+    init(buttonTitle: String, action: UIAction, fontSize: Int) {
         self.buttonSetTitle = buttonTitle
         self.tabButtonAction = action
+        self.fontSize = fontSize
         super.init(frame: .zero)
         self.setupStyles()
         self.addAction(tabButtonAction, for: .touchUpInside)
@@ -28,7 +30,7 @@ final class CustomButton: UIButton {
     private func setupStyles() {
         self.setTitle(buttonSetTitle, for: .normal)
         self.setTitleColor(.white, for: .normal)
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .light)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(fontSize), weight: .light)
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.bwGreen.cgColor

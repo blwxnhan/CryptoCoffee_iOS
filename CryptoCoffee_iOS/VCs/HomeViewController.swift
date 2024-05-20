@@ -24,12 +24,21 @@ final class HomeViewController: UIViewController {
         return label
     }()
     
-    private lazy var order = CryptoCoffeeButton(buttonImage: "mug.fill", buttonTitle: "주문하기", action: UIAction { _ in
+    private lazy var order = CryptoCoffeeButton(buttonImage: "mug.fill", 
+                                                buttonTitle: "주문하기",
+                                                action: UIAction { _ in
         let orderVC = OrderViewController()
         self.navigationController?.pushViewController(orderVC, animated: true)
     })
     
-    private let coupon = CryptoCoffeeButton(buttonImage: "mug.fill", buttonTitle: "쿠폰사용", action: UIAction { _ in })
+    private lazy var coupon = CryptoCoffeeButton(buttonImage: "mug.fill",
+                                            buttonTitle: "쿠폰사용",
+                                            action: UIAction { [weak self] _ in
+        let qrVC = QRViewController()
+        qrVC.loadImage(menu: "쿠폰")
+        qrVC.modalPresentationStyle = UIModalPresentationStyle.automatic
+        self?.present(qrVC, animated: true, completion: nil)
+    })
     
     private func setupLayouts() {
         [logo,

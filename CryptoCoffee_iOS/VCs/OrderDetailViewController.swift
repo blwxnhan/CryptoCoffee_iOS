@@ -8,13 +8,15 @@
 import UIKit
 
 final class OrderDetailViewController: UIViewController {
+    private var menu: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
         self.setupLayouts()
     }
-    
+
     private let logo: UILabel = {
         let label = UILabel()
         label.text = "CryptoCoffee"
@@ -35,7 +37,6 @@ final class OrderDetailViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textAlignment = .center
-        label.text = "브루드 커피"
         
         return label
     }()
@@ -65,12 +66,18 @@ final class OrderDetailViewController: UIViewController {
     
     private lazy var orderButton = CustomButton(buttonTitle: "주문하기", 
                                                 action: UIAction { _ in
+        guard let menu = self.menu else { return }
         let qrVC = QRViewController()
-        qrVC.menu = "브루드 커피"
+        qrVC.loadImage(menu: menu)
         qrVC.modalPresentationStyle = UIModalPresentationStyle.automatic
         self.present(qrVC, animated: true, completion: nil)
         
-    })
+    }, fontSize: 18)
+    
+    func setTitle(menu: String) {
+        self.menu = menu
+        menuTitle.text = menu
+    }
     
     private func setupLayouts() {
         [logo, 

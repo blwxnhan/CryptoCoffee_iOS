@@ -53,7 +53,7 @@ final class CustomTextField: UIView {
         }
         
         textfield.snp.makeConstraints {
-            $0.top.equalTo(label.snp.bottom).offset(5)
+            $0.top.equalTo(label.snp.bottom)
             $0.leading.equalToSuperview()
             $0.height.equalTo(40)
             $0.width.equalTo(330)
