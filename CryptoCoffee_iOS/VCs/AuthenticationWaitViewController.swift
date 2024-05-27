@@ -11,6 +11,7 @@ import SnapKit
 final class AuthenticationWaitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .systemBackground
         self.setupLayouts()
     }
     

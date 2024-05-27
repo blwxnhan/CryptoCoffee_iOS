@@ -68,7 +68,7 @@ final class OrderDetailViewController: UIViewController {
                                                 fontSize: 18,
                                                 action: UIAction { _ in
         guard let menu = self.menu else { return }
-        guard let token = DIDUserDefaults.shared.DIDList?.did else { return }
+        guard let token = CryptoUserDefaults.shared.DIDList.did else { return }
         
         let qrVC = QRViewController()
         qrVC.loadImage(menu: menu, token: token)

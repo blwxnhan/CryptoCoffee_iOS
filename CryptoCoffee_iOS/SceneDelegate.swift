@@ -16,36 +16,49 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let userDefaultsDID = DIDUserDefaults.shared
-        userDefaultsDID.loadData()
+        let userDefaultsMetamask = CryptoUserDefaults.shared
+        userDefaultsMetamask.loadAccountData()
         
-        let userDefaultsMetamask = MetaMaskAccountUserDefaults.shared
-//        userDefaultsMetamask.loadData()
-        
-        let rootVC: UIViewController
-//        if ((userDefaultsDID.DIDList?.did) != nil) && ((userDefaultsMetamask.account.account) != nil) {
-//            rootVC = HomeViewController()
-//        }
-//        else if ((userDefaultsDID.DIDList?.did) == nil) && ((userDefaultsMetamask.account.account) != nil) {
-//            rootVC = AuthenticationWaitViewController()
-//        }
-//        else {
-//            rootVC = AuthViewController()
-//        }
-        
-        if userDefaultsDID.DIDList?.did == nil {
-            rootVC = AuthViewController()
+        if (userDefaultsMetamask.account.account) != "" {
+            let param = IssuedDIDRequsetDTO(account: userDefaultsMetamask.account.account)
+            
+            Task {
+                do {
+                    try await DIDAPI.fetchDIDAccount.performRequest(with: param)
+                } catch {
+                    print("did")
+                }
+                
+                let userDefaultsDID = CryptoUserDefaults.shared
+                userDefaultsDID.loadDIDData()
+                
+                let rootVC: UIViewController
+                if ((userDefaultsDID.DIDList.did) != "") && ((userDefaultsMetamask.account.account) != "") {
+                    rootVC = HomeViewController()
+                }
+                else if ((userDefaultsDID.DIDList.did) == "") && ((userDefaultsMetamask.account.account) != "") {
+                    rootVC = AuthenticationWaitViewController()
+                }
+                else {
+                    rootVC = AuthViewController()
+                }
+                
+                let navigationVC = UINavigationController(rootViewController: rootVC)
+                navigationVC.navigationBar.tintColor = .bwGreen
+                window.rootViewController = navigationVC
+                window.makeKeyAndVisible()
+                self.window = window
+            }
         }
+        
         else {
-            rootVC = HomeViewController()
+            let rootVC: UIViewController = AuthViewController()
+            let navigationVC = UINavigationController(rootViewController: rootVC)
+            navigationVC.navigationBar.tintColor = .bwGreen
+            window.rootViewController = navigationVC
+            window.makeKeyAndVisible()
+            self.window = window
         }
-        
-               
-        let navigationVC = UINavigationController(rootViewController: rootVC)
-        navigationVC.navigationBar.tintColor = .bwGreen
-        window.rootViewController = navigationVC
-        window.makeKeyAndVisible()
-        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

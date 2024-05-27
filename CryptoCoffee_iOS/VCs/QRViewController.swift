@@ -31,7 +31,11 @@ final class QRViewController: UIViewController {
     }()
     
     func loadImage(menu: String, token: String) {
-        let data = "https://quickchart.io/qr?text=\(menu)\(token)"
+        let stringData = "\(menu)/\(token)"
+        let stringToData = stringData.data (using: .utf8)
+        print(stringToData)
+
+        let data = "https://quickchart.io/qr?text=\(menu)/\(token)"
         guard let url = URL(string: data) else { return }
         
         let backgroundQueue = DispatchQueue(label: "background_queue",qos: .background)

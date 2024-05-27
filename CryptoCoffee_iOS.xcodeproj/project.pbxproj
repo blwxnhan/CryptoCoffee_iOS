@@ -32,8 +32,9 @@
 		29CFEDA32BFB2908003B4539 /* EmailAuthRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFEDA22BFB2908003B4539 /* EmailAuthRequestDTO.swift */; };
 		29CFEDA52BFB33E8003B4539 /* MetaMaskAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFEDA42BFB33E8003B4539 /* MetaMaskAccountModel.swift */; };
 		29CFEDA72BFB3415003B4539 /* MetaMaskAccountUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFEDA62BFB3415003B4539 /* MetaMaskAccountUserDefaults.swift */; };
-		29DFC7EB2BFF8F15008C28E2 /* DIDUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFC7EA2BFF8F15008C28E2 /* DIDUserDefaults.swift */; };
+		29DFC7EB2BFF8F15008C28E2 /* CryptoUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFC7EA2BFF8F15008C28E2 /* CryptoUserDefaults.swift */; };
 		29E0AC012C046AF90004E40D /* AuthenticationWaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29E0AC002C046AF90004E40D /* AuthenticationWaitViewController.swift */; };
+		29F44E322C04A562007C66FA /* IssuedDIDRequsetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F44E312C04A562007C66FA /* IssuedDIDRequsetDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,8 +63,9 @@
 		29CFEDA22BFB2908003B4539 /* EmailAuthRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthRequestDTO.swift; sourceTree = "<group>"; };
 		29CFEDA42BFB33E8003B4539 /* MetaMaskAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaMaskAccountModel.swift; sourceTree = "<group>"; };
 		29CFEDA62BFB3415003B4539 /* MetaMaskAccountUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaMaskAccountUserDefaults.swift; sourceTree = "<group>"; };
-		29DFC7EA2BFF8F15008C28E2 /* DIDUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDUserDefaults.swift; sourceTree = "<group>"; };
+		29DFC7EA2BFF8F15008C28E2 /* CryptoUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUserDefaults.swift; sourceTree = "<group>"; };
 		29E0AC002C046AF90004E40D /* AuthenticationWaitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWaitViewController.swift; sourceTree = "<group>"; };
+		29F44E312C04A562007C66FA /* IssuedDIDRequsetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuedDIDRequsetDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				29CFEDA62BFB3415003B4539 /* MetaMaskAccountUserDefaults.swift */,
-				29DFC7EA2BFF8F15008C28E2 /* DIDUserDefaults.swift */,
+				29DFC7EA2BFF8F15008C28E2 /* CryptoUserDefaults.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -180,6 +182,7 @@
 				29609AE92BF1F89800486934 /* DIDRequestDTO.swift */,
 				29CFEDA22BFB2908003B4539 /* EmailAuthRequestDTO.swift */,
 				29CFEDA02BFB240E003B4539 /* EmailVerifyRequestDTO.swift */,
+				29F44E312C04A562007C66FA /* IssuedDIDRequsetDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -272,10 +275,11 @@
 				2915D86A2BF1EA0C00EAC2DA /* QRViewController.swift in Sources */,
 				29609AEC2BF201F100486934 /* OrderDetailViewController.swift in Sources */,
 				29CFEDA72BFB3415003B4539 /* MetaMaskAccountUserDefaults.swift in Sources */,
+				29F44E322C04A562007C66FA /* IssuedDIDRequsetDTO.swift in Sources */,
 				29CDB52F2BF1F49400F19A92 /* DIDAPI.swift in Sources */,
 				29CFEDA12BFB240E003B4539 /* EmailVerifyRequestDTO.swift in Sources */,
 				2915D8572BF1CDD400EAC2DA /* CustomButton.swift in Sources */,
-				29DFC7EB2BFF8F15008C28E2 /* DIDUserDefaults.swift in Sources */,
+				29DFC7EB2BFF8F15008C28E2 /* CryptoUserDefaults.swift in Sources */,
 				293937002C044B7300471012 /* UIViewController+.swift in Sources */,
 				29E0AC012C046AF90004E40D /* AuthenticationWaitViewController.swift in Sources */,
 				29CFEDA32BFB2908003B4539 /* EmailAuthRequestDTO.swift in Sources */,

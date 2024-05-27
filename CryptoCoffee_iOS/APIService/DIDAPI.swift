@@ -11,6 +11,7 @@ enum DIDAPI {
     static let baseURL = "https://didserver.run.goorm.io"
     
     case DIDRequest
+    case fetchDIDAccount
 }
 
 extension DIDAPI {
@@ -18,12 +19,15 @@ extension DIDAPI {
         switch self {
         case .DIDRequest:
             "/didrequest"
+        case .fetchDIDAccount:
+            "/showMyDID"
         }
     }
     
     var method: String {
         switch self {
-        case .DIDRequest:
+        case .DIDRequest,
+            .fetchDIDAccount:
             "POST"
         }
     }
@@ -65,12 +69,19 @@ extension DIDAPI {
         case 200..<300:
             /// 성공적인 응답 처리
             if case .DIDRequest = self {
-//                let result = String(decoding: data, as: UTF8.self)
-                let result = try JSONDecoder().decode(DIDModel.self, from: data)
-                DIDUserDefaults.shared.DIDList = result
-                DIDUserDefaults.shared.saveData()
-                print(DIDUserDefaults.shared.DIDList)
-            } else {
+                print("DID 발급요청 성공")
+            }
+            
+            else if case .fetchDIDAccount = self {
+                print("did 발급 완료")
+                let result = String(decoding: data, as: UTF8.self)
+//                let result = try JSONDecoder().decode(DIDModel.self, from: data)
+                CryptoUserDefaults.shared.DIDList.did = result
+                CryptoUserDefaults.shared.saveDIDData()
+                print(CryptoUserDefaults.shared.DIDList.did)
+            }
+            
+            else {
                 throw FetchError.invalidStatus
             }
             

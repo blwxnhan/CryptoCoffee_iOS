@@ -30,9 +30,10 @@ final class AuthViewController: UIViewController {
             switch connectResult {
             case .success(let data):
                 let trimData = data.trimmingCharacters(in: ["[","\"","]"])
-                MetaMaskAccountUserDefaults.shared.account.account = trimData
-//                MetaMaskAccountUserDefaults.shared.saveData()
-                print(trimData)
+                CryptoUserDefaults.shared.account.account = trimData
+                CryptoUserDefaults.shared.saveAccountData()
+
+                print(CryptoUserDefaults.shared.account.account)
             case .failure(let error):
                 print(error)
             case .none:
@@ -160,39 +161,23 @@ final class AuthViewController: UIViewController {
                                                fontSize: 18,
                                                action: UIAction { _ in
         
-//        MetaMaskAccountUserDefaults.shared.loadData()
-        
+        let metamask = CryptoUserDefaults.shared
+        metamask.loadAccountData()
         guard let email = self.email.textfield.text else { return }
-//        guard let account = metamask.account?.account else {
-//            print("account 없음")
-//            return
-//        }
         
-        let param = DIDRequestDTO(account:MetaMaskAccountUserDefaults.shared.account.account, email: email)
+        let param = DIDRequestDTO(account: CryptoUserDefaults.shared.account.account, email: email)
 
         Task {
             do {
                 try await DIDAPI.DIDRequest.performRequest(with: param)
                 print("DID요청")
                 
-//                try await Task.sleep(nanoseconds: 3)
-//                
-////                if DIDUserDefaults.shared.DIDList != nil {
-//                    let authenticationWaitVC = AuthenticationWaitViewController()
-//                    self.navigationController?.pushViewController(authenticationWaitVC, animated: true)
-////                }
+                let authenticationWaitVC = AuthenticationWaitViewController()
+                self.navigationController?.pushViewController(authenticationWaitVC, animated: true)
             } catch {
                 print("error: \(error)")
             }
         }
-        
-//        let didUserDefaults = DIDUserDefaults.shared
-//
-//        didUserDefaults.DIDList = DIDModel(DIDToken: "sdfsdfsfsdfsdfsdfsfsdfsdfsdfsdf")
-//        didUserDefaults.saveData()
-//
-//        let homeVC = HomeViewController()
-//        self.navigationController?.pushViewController(homeVC, animated: true)
     })
     
     // MARK: - setupLayouts
@@ -228,7 +213,7 @@ final class AuthViewController: UIViewController {
         listScrollView.snp.makeConstraints {
             $0.top.equalTo(authLabel.snp.bottom).offset(20)
             $0.left.right.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(authButton.snp.top).offset(-10)
+            $0.bottom.equalTo(authButton.snp.top)
         }
         
         contentView.snp.makeConstraints {
@@ -282,7 +267,8 @@ final class AuthViewController: UIViewController {
         authButton.snp.makeConstraints {
             $0.height.equalTo(50)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-20)
         }
     }
 }
