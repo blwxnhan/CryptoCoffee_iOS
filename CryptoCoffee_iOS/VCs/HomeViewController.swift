@@ -35,7 +35,7 @@ final class HomeViewController: UIViewController {
                                             buttonTitle: "쿠폰사용",
                                             action: UIAction { [weak self] _ in
         let qrVC = QRViewController()
-        qrVC.loadImage(menu: "쿠폰")
+        qrVC.loadImage(menu: "쿠폰", token: "토큰")
         qrVC.modalPresentationStyle = UIModalPresentationStyle.automatic
         self?.present(qrVC, animated: true, completion: nil)
     })

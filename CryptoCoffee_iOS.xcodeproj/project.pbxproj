@@ -21,17 +21,18 @@
 		2915D8622BF1D8CF00EAC2DA /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8612BF1D8CF00EAC2DA /* OrderViewController.swift */; };
 		2915D8652BF1E45600EAC2DA /* metamask-ios-sdk in Frameworks */ = {isa = PBXBuildFile; productRef = 2915D8642BF1E45600EAC2DA /* metamask-ios-sdk */; };
 		2915D86A2BF1EA0C00EAC2DA /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915D8692BF1EA0C00EAC2DA /* QRViewController.swift */; };
+		293937002C044B7300471012 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293936FF2C044B7300471012 /* UIViewController+.swift */; };
 		29609AEA2BF1F89800486934 /* DIDRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29609AE92BF1F89800486934 /* DIDRequestDTO.swift */; };
 		29609AEC2BF201F100486934 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29609AEB2BF201F100486934 /* OrderDetailViewController.swift */; };
 		298290922BFB16CE001397FD /* EmailVerifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298290912BFB16CE001397FD /* EmailVerifyAPI.swift */; };
 		29CDB52F2BF1F49400F19A92 /* DIDAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDB52E2BF1F49400F19A92 /* DIDAPI.swift */; };
 		29CDB5312BF1F4FF00F19A92 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDB5302BF1F4FF00F19A92 /* Error.swift */; };
 		29CDB5332BF1F53900F19A92 /* DIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDB5322BF1F53900F19A92 /* DIDModel.swift */; };
-		29CDB5362BF1F57900F19A92 /* DIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CDB5352BF1F57900F19A92 /* DIDManager.swift */; };
 		29CFEDA12BFB240E003B4539 /* EmailVerifyRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFEDA02BFB240E003B4539 /* EmailVerifyRequestDTO.swift */; };
 		29CFEDA32BFB2908003B4539 /* EmailAuthRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFEDA22BFB2908003B4539 /* EmailAuthRequestDTO.swift */; };
 		29CFEDA52BFB33E8003B4539 /* MetaMaskAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFEDA42BFB33E8003B4539 /* MetaMaskAccountModel.swift */; };
 		29CFEDA72BFB3415003B4539 /* MetaMaskAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CFEDA62BFB3415003B4539 /* MetaMaskAccountManager.swift */; };
+		29DFC7EB2BFF8F15008C28E2 /* DIDUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFC7EA2BFF8F15008C28E2 /* DIDUserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,17 +50,18 @@
 		2915D85F2BF1D49300EAC2DA /* CryptoCoffeeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoffeeButton.swift; sourceTree = "<group>"; };
 		2915D8612BF1D8CF00EAC2DA /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		2915D8692BF1EA0C00EAC2DA /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		293936FF2C044B7300471012 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		29609AE92BF1F89800486934 /* DIDRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDRequestDTO.swift; sourceTree = "<group>"; };
 		29609AEB2BF201F100486934 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		298290912BFB16CE001397FD /* EmailVerifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyAPI.swift; sourceTree = "<group>"; };
 		29CDB52E2BF1F49400F19A92 /* DIDAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDAPI.swift; sourceTree = "<group>"; };
 		29CDB5302BF1F4FF00F19A92 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		29CDB5322BF1F53900F19A92 /* DIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDModel.swift; sourceTree = "<group>"; };
-		29CDB5352BF1F57900F19A92 /* DIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDManager.swift; sourceTree = "<group>"; };
 		29CFEDA02BFB240E003B4539 /* EmailVerifyRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerifyRequestDTO.swift; sourceTree = "<group>"; };
 		29CFEDA22BFB2908003B4539 /* EmailAuthRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAuthRequestDTO.swift; sourceTree = "<group>"; };
 		29CFEDA42BFB33E8003B4539 /* MetaMaskAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaMaskAccountModel.swift; sourceTree = "<group>"; };
 		29CFEDA62BFB3415003B4539 /* MetaMaskAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaMaskAccountManager.swift; sourceTree = "<group>"; };
+		29DFC7EA2BFF8F15008C28E2 /* DIDUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDUserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				2915D8582BF1CE4E00EAC2DA /* UIColor+.swift */,
+				293936FF2C044B7300471012 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -162,8 +165,8 @@
 		29CDB5342BF1F56B00F19A92 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				29CDB5352BF1F57900F19A92 /* DIDManager.swift */,
 				29CFEDA62BFB3415003B4539 /* MetaMaskAccountManager.swift */,
+				29DFC7EA2BFF8F15008C28E2 /* DIDUserDefaults.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -263,13 +266,14 @@
 				29CDB5312BF1F4FF00F19A92 /* Error.swift in Sources */,
 				2915D83E2BF1CA2F00EAC2DA /* AppDelegate.swift in Sources */,
 				2915D8402BF1CA2F00EAC2DA /* SceneDelegate.swift in Sources */,
-				29CDB5362BF1F57900F19A92 /* DIDManager.swift in Sources */,
 				2915D86A2BF1EA0C00EAC2DA /* QRViewController.swift in Sources */,
 				29609AEC2BF201F100486934 /* OrderDetailViewController.swift in Sources */,
 				29CFEDA72BFB3415003B4539 /* MetaMaskAccountManager.swift in Sources */,
 				29CDB52F2BF1F49400F19A92 /* DIDAPI.swift in Sources */,
 				29CFEDA12BFB240E003B4539 /* EmailVerifyRequestDTO.swift in Sources */,
 				2915D8572BF1CDD400EAC2DA /* CustomButton.swift in Sources */,
+				29DFC7EB2BFF8F15008C28E2 /* DIDUserDefaults.swift in Sources */,
+				293937002C044B7300471012 /* UIViewController+.swift in Sources */,
 				29CFEDA32BFB2908003B4539 /* EmailAuthRequestDTO.swift in Sources */,
 				2915D85E2BF1D45200EAC2DA /* HomeViewController.swift in Sources */,
 				2915D8592BF1CE4E00EAC2DA /* UIColor+.swift in Sources */,

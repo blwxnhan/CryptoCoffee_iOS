@@ -12,35 +12,73 @@ import metamask_ios_sdk
 final class AuthViewController: UIViewController {
     private var metamaskSDK: MetaMaskSDK?
     
+    var bottomConstraint: NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.setupLayouts()
+        self.hideKeyboardWhenTappedAround()
+        self.keyboardLayout()
         
         let appMetadata = AppMetadata(name: "Dub Dapp", url: "https://dubdapp.com")
         metamaskSDK = MetaMaskSDK.shared(appMetadata, sdkOptions: SDKOptions(infuraAPIKey: ""))
         
         Task {
             let connectResult = await self.metamaskSDK?.connect()
-            let result = await metamaskSDK?.getChainId()
             
             switch connectResult {
             case .success(let data):
-                MetaMaskAccountManager.shared.account.account = data
+                let trimData = data.trimmingCharacters(in: ["[","\"","]"])
+                MetaMaskAccountManager.shared.account.account = trimData
+                print(trimData)
             case .failure(let error):
                 print(error)
             case .none:
                 print("none")
             }
+        }
+    }
+    
+    private func keyboardLayout() {
+        let safeArea = self.view.safeAreaLayoutGuide
             
-            switch result {
-            case .success(let data):
-                print(data)
-            case .failure(let error):
-                print(error)
-            case .none:
-                print("none")
-            }
+        self.bottomConstraint = NSLayoutConstraint(item: self.authButton, attribute: .bottom, relatedBy: .equal, toItem: safeArea, attribute: .bottom, multiplier: 1.0, constant: 0)
+        self.bottomConstraint?.isActive = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.addKeyboardNotifications()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.removeKeyboardNotifications()
+    }
+    
+    private func addKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification , object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(_ noti: NSNotification) {
+        if let keyboardSize = (noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight: CGFloat
+            keyboardHeight = keyboardSize.height - self.view.safeAreaInsets.bottom
+            self.bottomConstraint?.constant = (-1 * keyboardHeight) - 10
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    @objc func keyboardWillHide(_ noti: NSNotification) {
+        if let keyboardFrame: NSValue = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            self.bottomConstraint?.constant = keyboardHeight
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -62,12 +100,25 @@ final class AuthViewController: UIViewController {
         return label
     }()
     
+    private let contentView = UIView()
+    
+    private lazy var listScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.isPagingEnabled = true
+        scrollView.isDirectionalLockEnabled = true
+        
+        return scrollView
+    }()
+    
     private lazy var memberNumber = CustomTextField("사원번호",placeholder: "사원번호를 입력해주세요")
     private lazy var nickName = CustomTextField("닉네임", placeholder: "닉네임을 입력해주세요")
     private lazy var email = CustomTextField("이메일", placeholder: "이메일을 입력해주세요")
     private lazy var emailAuth = CustomTextField("이메일 인증", placeholder: "인증번호를 입력해주세요")
     
     private lazy var emailVerifyButton = CustomButton(buttonTitle: "보내기",
+                                                      fontSize: 14,
                                                       action: UIAction { _ in
         
         guard let email = self.email.textfield.text else { return }
@@ -82,9 +133,10 @@ final class AuthViewController: UIViewController {
                 print("이메일 보내기 실패")
             }
         }
-    }, fontSize: 14)
+    })
     
     private lazy var emailAuthButton = CustomButton(buttonTitle: "인증",
+                                                    fontSize: 14,
                                                       action: UIAction { _ in
         
         guard let email = self.email.textfield.text else { return }
@@ -100,46 +152,56 @@ final class AuthViewController: UIViewController {
                 print("이메일 보내기 실패")
             }
         }
-
-    }, fontSize: 14)
-
+    })
     
     private lazy var authButton = CustomButton(buttonTitle: "인증서 발급",
-                                               action: UIAction { [weak self] _ in
-        /*
-        guard let email = self?.email.textfield.text else { return }
-        var param = DIDRequestDTO(account: "0x9e56a749eda10be733ff8f13b365daea23572642", email: email)
-        print(param)
+                                               fontSize: 18,
+                                               action: UIAction { _ in
         
+        guard let email = self.email.textfield.text else { return }
+        let param = DIDRequestDTO(account: MetaMaskAccountManager.shared.account.account, email: email)
+
         Task {
             do {
                 try await DIDAPI.DIDRequest.performRequest(with: param)
+                print("DID요청")
                 
-                try await Task.sleep(nanoseconds: 4)
+                try await Task.sleep(nanoseconds: 3)
                 
-                if !DIDManager.shared.DIDList.DIDList.isEmpty {
+                if DIDUserDefaults.shared.DIDList == nil {
                     let homeVC = HomeViewController()
-                    self?.navigationController?.pushViewController(homeVC, animated: true)
+                    self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             } catch {
                 print("error: \(error)")
             }
-        }*/
+        }
         
-        let homeVC = HomeViewController()
-        self?.navigationController?.pushViewController(homeVC, animated: true)
-    }, fontSize: 18)
+//        let didUserDefaults = DIDUserDefaults.shared
+//
+//        didUserDefaults.DIDList = DIDModel(DIDToken: "sdfsdfsfsdfsdfsdfsfsdfsdfsdfsdf")
+//        didUserDefaults.saveData()
+//
+//        let homeVC = HomeViewController()
+//        self.navigationController?.pushViewController(homeVC, animated: true)
+    })
     
     // MARK: - setupLayouts
     private func setupLayouts() {
+        [memberNumber,
+          nickName,
+          email,
+          emailVerifyButton,
+          emailAuth,
+          emailAuthButton].forEach {
+            contentView.addSubview($0)
+        }
+        
+        listScrollView.addSubview(contentView)
+        
         [logo,
          authLabel,
-         memberNumber,
-         nickName,
-         email,
-         emailVerifyButton,
-         emailAuth,
-         emailAuthButton,
+         listScrollView,
          authButton].forEach {
             view.addSubview($0)
         }
@@ -154,9 +216,21 @@ final class AuthViewController: UIViewController {
             $0.leading.equalTo(logo.snp.leading).offset(20)
         }
         
+        listScrollView.snp.makeConstraints {
+            $0.top.equalTo(authLabel.snp.bottom).offset(20)
+            $0.left.right.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(authButton.snp.top).offset(-10)
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(listScrollView.contentLayoutGuide)
+            $0.width.equalTo(listScrollView.frameLayoutGuide)
+            $0.height.equalTo(400)
+        }
+        
         memberNumber.snp.makeConstraints {
-            $0.top.equalTo(authLabel.snp.bottom).offset(50)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.top.equalToSuperview().offset(3)
+            $0.leading.equalToSuperview().offset(30)
             $0.height.equalTo(90)
             $0.width.equalTo(400)
         }

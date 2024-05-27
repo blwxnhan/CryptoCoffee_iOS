@@ -8,7 +8,7 @@
 import Foundation
 
 enum DIDAPI {
-    static let baseURL = "https://didauthserver.run.goorm.io"
+    static let baseURL = "https://didserver.run.goorm.io"
     
     case DIDRequest
 }
@@ -67,8 +67,9 @@ extension DIDAPI {
             /// 성공적인 응답 처리
             if case .DIDRequest = self {
                 let result = try JSONDecoder().decode(DIDModel.self, from: data)
-                DIDManager.shared.DIDList = result
-                print(result)
+                DIDUserDefaults.shared.DIDList = result
+                DIDUserDefaults.shared.saveData()
+                print(DIDUserDefaults.shared.DIDList)
             } else {
                 throw FetchError.invalidStatus
             }

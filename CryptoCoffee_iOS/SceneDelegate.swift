@@ -15,7 +15,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        let rootVC = AuthViewController()
+        
+        let userDefaultDID = DIDUserDefaults.shared
+        userDefaultDID.loadData()
+        
+        let rootVC: UIViewController
+        if (userDefaultDID.DIDList?.DIDToken) == nil {
+            rootVC = AuthViewController()
+        } else {
+            rootVC = HomeViewController()
+        }
+               
         let navigationVC = UINavigationController(rootViewController: rootVC)
         navigationVC.navigationBar.tintColor = .bwGreen
         window.rootViewController = navigationVC

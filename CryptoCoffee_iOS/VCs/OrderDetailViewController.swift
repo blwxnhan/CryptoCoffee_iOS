@@ -64,15 +64,18 @@ final class OrderDetailViewController: UIViewController {
         return view
     }()
     
-    private lazy var orderButton = CustomButton(buttonTitle: "주문하기", 
+    private lazy var orderButton = CustomButton(buttonTitle: "주문하기",
+                                                fontSize: 18,
                                                 action: UIAction { _ in
         guard let menu = self.menu else { return }
+        guard let token = DIDUserDefaults.shared.DIDList?.DIDToken else { return }
+        
         let qrVC = QRViewController()
-        qrVC.loadImage(menu: menu)
+        qrVC.loadImage(menu: menu, token: token)
         qrVC.modalPresentationStyle = UIModalPresentationStyle.automatic
         self.present(qrVC, animated: true, completion: nil)
         
-    }, fontSize: 18)
+    })
     
     func setTitle(menu: String) {
         self.menu = menu

@@ -18,9 +18,9 @@ extension EmailVerifyAPI {
     var path: String {
         switch self {
         case .sendEmailCode:
-            "/api/email"
+            "/api/users/email"
         case .emailAuth:
-            "/api/email/auth"
+            "/api/users/email/auth"
         }
     }
     

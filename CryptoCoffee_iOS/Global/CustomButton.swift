@@ -13,7 +13,7 @@ final class CustomButton: UIButton {
     private var tabButtonAction: UIAction
     private var fontSize: Int
     
-    init(buttonTitle: String, action: UIAction, fontSize: Int) {
+    init(buttonTitle: String, fontSize: Int, action: UIAction) {
         self.buttonSetTitle = buttonTitle
         self.tabButtonAction = action
         self.fontSize = fontSize

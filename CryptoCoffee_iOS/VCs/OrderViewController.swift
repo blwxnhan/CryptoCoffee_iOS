@@ -39,6 +39,18 @@ final class OrderViewController: UIViewController {
         return label
     }()
     
+    private let contentView = UIView()
+    
+    private lazy var listScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.isPagingEnabled = true
+        scrollView.isDirectionalLockEnabled = true
+        
+        return scrollView
+    }()
+    
     private lazy var brudeCoffee = CryptoCoffeeButton(buttonImage: "mug.fill", 
                                                       buttonTitle: "브루드 커피",
                                                       action: UIAction { _ in
@@ -86,18 +98,43 @@ final class OrderViewController: UIViewController {
         
         return label
     }()
+    
+    private lazy var choco = CryptoCoffeeButton(buttonImage: "mug.fill",
+                                               buttonTitle: "핫초코",
+                                               action: UIAction { _ in
+        let detailVC = OrderDetailViewController()
+        detailVC.setTitle(menu: "핫초코")
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    })
+    
+    private lazy var honeyMilk = CryptoCoffeeButton(buttonImage: "mug.fill",
+                                                buttonTitle: "허니밀크티",
+                                                action: UIAction { _ in
+        let detailVC = OrderDetailViewController()
+        detailVC.setTitle(menu: "허니밀크티")
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    })
+
 
     
     private func setupLayouts() {
-        [logo,
-         lineView,
-         coffeeLabel,
+        [coffeeLabel,
          brudeCoffee,
          cafeLatte,
          teaAdeLabel,
          pink,
          honey,
-         nonCoffee].forEach {
+         nonCoffee,
+         choco,
+         honeyMilk].forEach {
+            contentView.addSubview($0)
+        }
+        
+        listScrollView.addSubview(contentView)
+        
+        [logo,
+         lineView,
+         listScrollView].forEach {
             view.addSubview($0)
         }
         
@@ -112,14 +149,25 @@ final class OrderViewController: UIViewController {
             $0.height.equalTo(1)
         }
         
+        listScrollView.snp.makeConstraints {
+            $0.top.equalTo(lineView.snp.bottom).offset(1)
+            $0.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(listScrollView.contentLayoutGuide)
+            $0.width.equalTo(listScrollView.frameLayoutGuide)
+            $0.height.equalTo(800)
+        }
+        
         coffeeLabel.snp.makeConstraints {
-            $0.top.equalTo(lineView.snp.bottom).offset(20)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.top.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview().offset(30)
         }
         
         brudeCoffee.snp.makeConstraints {
             $0.top.equalTo(coffeeLabel.snp.bottom).offset(20)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.leading.equalToSuperview().offset(30)
             $0.height.width.equalTo(150)
         }
         
@@ -131,7 +179,7 @@ final class OrderViewController: UIViewController {
         
         teaAdeLabel.snp.makeConstraints {
             $0.top.equalTo(brudeCoffee.snp.bottom).offset(40)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.leading.equalToSuperview().offset(30)
         }
         
         pink.snp.makeConstraints {
@@ -148,7 +196,19 @@ final class OrderViewController: UIViewController {
         
         nonCoffee.snp.makeConstraints {
             $0.top.equalTo(honey.snp.bottom).offset(40)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
+            $0.leading.equalToSuperview().offset(30)
+        }
+        
+        choco.snp.makeConstraints {
+            $0.top.equalTo(nonCoffee.snp.bottom).offset(20)
+            $0.leading.equalTo(brudeCoffee.snp.leading)
+            $0.height.width.equalTo(150)
+        }
+        
+        honeyMilk.snp.makeConstraints {
+            $0.top.equalTo(nonCoffee.snp.bottom).offset(20)
+            $0.trailing.equalTo(cafeLatte.snp.trailing)
+            $0.height.width.equalTo(150)
         }
     }
 }
