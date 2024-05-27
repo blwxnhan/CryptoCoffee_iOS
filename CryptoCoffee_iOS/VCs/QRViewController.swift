@@ -32,7 +32,7 @@ final class QRViewController: UIViewController {
     
     func loadImage(menu: String, token: String) {
         let data = "https://quickchart.io/qr?text=\(menu)\(token)"
-        guard let url = URL(string: data)  else { return }
+        guard let url = URL(string: data) else { return }
         
         let backgroundQueue = DispatchQueue(label: "background_queue",qos: .background)
         

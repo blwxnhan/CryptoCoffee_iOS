@@ -41,7 +41,6 @@ extension DIDAPI {
     
     // MARK: - network 호출함수
     func performRequest(with parameters: Encodable? = nil) async throws {
-        print("request 함수 호출 시점")
         /// URLRequest 생성
         var request = self.request
         
@@ -66,6 +65,7 @@ extension DIDAPI {
         case 200..<300:
             /// 성공적인 응답 처리
             if case .DIDRequest = self {
+//                let result = String(decoding: data, as: UTF8.self)
                 let result = try JSONDecoder().decode(DIDModel.self, from: data)
                 DIDUserDefaults.shared.DIDList = result
                 DIDUserDefaults.shared.saveData()

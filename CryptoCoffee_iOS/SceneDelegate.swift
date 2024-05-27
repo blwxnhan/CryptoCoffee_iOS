@@ -16,15 +16,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let userDefaultDID = DIDUserDefaults.shared
-        userDefaultDID.loadData()
+        let userDefaultsDID = DIDUserDefaults.shared
+        userDefaultsDID.loadData()
+        
+        let userDefaultsMetamask = MetaMaskAccountUserDefaults.shared
+//        userDefaultsMetamask.loadData()
         
         let rootVC: UIViewController
-        if (userDefaultDID.DIDList?.DIDToken) == nil {
+//        if ((userDefaultsDID.DIDList?.did) != nil) && ((userDefaultsMetamask.account.account) != nil) {
+//            rootVC = HomeViewController()
+//        }
+//        else if ((userDefaultsDID.DIDList?.did) == nil) && ((userDefaultsMetamask.account.account) != nil) {
+//            rootVC = AuthenticationWaitViewController()
+//        }
+//        else {
+//            rootVC = AuthViewController()
+//        }
+        
+        if userDefaultsDID.DIDList?.did == nil {
             rootVC = AuthViewController()
-        } else {
+        }
+        else {
             rootVC = HomeViewController()
         }
+        
                
         let navigationVC = UINavigationController(rootViewController: rootVC)
         navigationVC.navigationBar.tintColor = .bwGreen

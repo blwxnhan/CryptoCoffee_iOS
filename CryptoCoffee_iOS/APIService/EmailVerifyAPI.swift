@@ -69,11 +69,11 @@ extension EmailVerifyAPI {
         case 200..<300:
             /// 성공적인 응답 처리
             if case .sendEmailCode = self {
-                print("이메일 인증 메일 send")
+                print("Success sending email authentication mail")
             }
             
             else if case .emailAuth = self {
-                print("이메일 인증 성공")
+                print("Success email authentication")
             }
             
         case 400..<600:

@@ -12,7 +12,7 @@ import metamask_ios_sdk
 final class AuthViewController: UIViewController {
     private var metamaskSDK: MetaMaskSDK?
     
-    var bottomConstraint: NSLayoutConstraint?
+    private var bottomConstraint: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,8 @@ final class AuthViewController: UIViewController {
             switch connectResult {
             case .success(let data):
                 let trimData = data.trimmingCharacters(in: ["[","\"","]"])
-                MetaMaskAccountManager.shared.account.account = trimData
+                MetaMaskAccountUserDefaults.shared.account.account = trimData
+//                MetaMaskAccountUserDefaults.shared.saveData()
                 print(trimData)
             case .failure(let error):
                 print(error)
@@ -54,6 +55,7 @@ final class AuthViewController: UIViewController {
         self.removeKeyboardNotifications()
     }
     
+    // MARK: - 키보드 높이에 따른 Auth button높이 조정을 위한 Notification
     private func addKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -82,6 +84,7 @@ final class AuthViewController: UIViewController {
         }
     }
     
+    // MARK: - Config UI 
     private let logo: UILabel = {
         let label = UILabel()
         label.text = "CryptoCoffee"
@@ -129,7 +132,6 @@ final class AuthViewController: UIViewController {
                 try await EmailVerifyAPI.sendEmailCode.performRequest(with: param)
                 print("이메일 보내기 성공")
             } catch {
-                print(MetaMaskAccountManager.shared.account.account)
                 print("이메일 보내기 실패")
             }
         }
@@ -158,20 +160,27 @@ final class AuthViewController: UIViewController {
                                                fontSize: 18,
                                                action: UIAction { _ in
         
+//        MetaMaskAccountUserDefaults.shared.loadData()
+        
         guard let email = self.email.textfield.text else { return }
-        let param = DIDRequestDTO(account: MetaMaskAccountManager.shared.account.account, email: email)
+//        guard let account = metamask.account?.account else {
+//            print("account 없음")
+//            return
+//        }
+        
+        let param = DIDRequestDTO(account:MetaMaskAccountUserDefaults.shared.account.account, email: email)
 
         Task {
             do {
                 try await DIDAPI.DIDRequest.performRequest(with: param)
                 print("DID요청")
                 
-                try await Task.sleep(nanoseconds: 3)
-                
-                if DIDUserDefaults.shared.DIDList == nil {
-                    let homeVC = HomeViewController()
-                    self.navigationController?.pushViewController(homeVC, animated: true)
-                }
+//                try await Task.sleep(nanoseconds: 3)
+//                
+////                if DIDUserDefaults.shared.DIDList != nil {
+//                    let authenticationWaitVC = AuthenticationWaitViewController()
+//                    self.navigationController?.pushViewController(authenticationWaitVC, animated: true)
+////                }
             } catch {
                 print("error: \(error)")
             }

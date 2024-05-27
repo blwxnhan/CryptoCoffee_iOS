@@ -8,5 +8,5 @@
 import Foundation
 
 struct DIDModel: Codable {
-    var DIDToken: String?
+    var did: String?
 }
