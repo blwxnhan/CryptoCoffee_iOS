@@ -74,7 +74,6 @@ final class OrderDetailViewController: UIViewController {
         qrVC.loadImage(menu: menu, token: token)
         qrVC.modalPresentationStyle = UIModalPresentationStyle.automatic
         self.present(qrVC, animated: true, completion: nil)
-        
     })
     
     func setTitle(menu: String) {

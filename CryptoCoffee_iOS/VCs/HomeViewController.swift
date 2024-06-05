@@ -55,13 +55,15 @@ final class HomeViewController: UIViewController {
         order.snp.makeConstraints {
             $0.top.equalTo(logo.snp.bottom).offset(30)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(30)
-            $0.height.width.equalTo(150)
+            $0.height.equalTo(150)
+            $0.width.equalTo(130)
         }
         
         coupon.snp.makeConstraints {
             $0.top.equalTo(logo.snp.bottom).offset(30)
-            $0.leading.equalTo(order.snp.trailing).offset(30)
-            $0.height.width.equalTo(150)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-30)
+            $0.height.equalTo(150)
+            $0.width.equalTo(130)
         }
     }
 }
