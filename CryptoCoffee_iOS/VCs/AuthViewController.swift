@@ -164,13 +164,36 @@ final class AuthViewController: UIViewController {
         let metamask = CryptoUserDefaults.shared
         metamask.loadAccountData()
         guard let email = self.email.textfield.text else { return }
+        guard let nickname = self.nickName.textfield.text else { return }
+        guard let memberNumber = self.memberNumber.textfield.text else { return }
         
-        let param = DIDRequestDTO(account: CryptoUserDefaults.shared.account.account, email: email)
+        let param = DIDRequestDTO(account: metamask.account.account, email: email)
 
         Task {
             do {
-                try await DIDAPI.DIDRequest.performRequest(with: param)
-                print("DID요청")
+//                if !self.email.textfield.state.isEmpty &&
+//                    !self.nickName.textfield.state.isEmpty &&
+//                    !self.memberNumber.textfield.state.isEmpty {
+//                    try await DIDAPI.DIDRequest.performRequest(with: param)
+//                    print("DID요청")
+//                }
+                
+                if email != "" &&
+                    nickname != "" &&
+                    memberNumber != "" {
+                    try await DIDAPI.DIDRequest.performRequest(with: param)
+                    print("DID요청")
+                }
+                
+                else {
+                    let alert = UIAlertController(title: "알림",
+                                                         message: "빈칸없이 작성해주세요",
+                                                         preferredStyle: UIAlertController.Style.alert)
+                    
+                    let success = UIAlertAction(title: "확인", style: .default)
+                    alert.addAction(success)
+                    self.present(alert, animated: true, completion: nil)
+                }
                 
                 let authenticationWaitVC = AuthenticationWaitViewController()
                 self.navigationController?.pushViewController(authenticationWaitVC, animated: true)
